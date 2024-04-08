@@ -17,17 +17,17 @@ import pandas as pd
 def dag_HW8():
     @task
     def read_booking():
-        booking = pd.read_csv("/home/olesya/airflow/data/booking.csv")
+        booking = pd.read_csv("/home/shuv/airflow/data/booking.csv")
         return booking
 
     @task
     def read_client():
-        client = pd.read_csv("/home/olesya/airflow/data/client.csv")
+        client = pd.read_csv("/home/shuv/airflow/data/client.csv")
         return client
 
     @task
     def read_hotel():
-        hotel = pd.read_csv("/home/olesya/airflow/data/hotel.csv")
+        hotel = pd.read_csv("/home/shuv/airflow/data/hotel.csv")
         return hotel
 
     @task
@@ -86,7 +86,7 @@ def dag_HW8():
             task_id='load_data',
             database='Airflow',
             mysql_conn_id="mysql_conn",
-            sql=''' LOAD DATA LOCAL INFILE "/home/olesya/airflow/datas/HW8.csv" INTO TABLE HW8 fields terminated by ',' 
+            sql=''' LOAD DATA LOCAL INFILE "/home/shuv/airflow/datas/HW8.csv" INTO TABLE HW8 fields terminated by ',' 
             lines terminated by '\n'
             IGNORE 1 LINES;  '''
         )
